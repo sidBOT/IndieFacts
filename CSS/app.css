@@ -1,0 +1,21 @@
+body {
+
+   background: linear-gradient(to bottom, gray, whitesmoke);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+.col {
+  padding-left: 20px;
+  padding-top: 5rem;
+  font-size: large;
+  font-family: 'Cinzel Decorative', cursive;
+  margin-bottom: 10rem;
+  margin-right: 10rem;
+ 
+}
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="indexmap.css">
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+          var locations = [
+              ['A',39.7932655,-86.2207778 ],
+              ['B', 39.8314584, -86.1715705],
+
+          ];
+        var myLatLng = {lat: 39.7932655, lng: -86.2207778};
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 15,
+        });
+        
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {  
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+            }
+        })(marker, i));
+        }
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVJV0_kE15psxUkB_mPJ2_j9zHUxNdKN8&callback=initMap"
+    async defer></script>
+  </body>
+</html>
